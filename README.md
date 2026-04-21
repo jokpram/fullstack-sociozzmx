@@ -8,19 +8,19 @@
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" />
   </a>
   <a href="https://www.typescriptlang.org/">
-    <img src="https://img.shields.io/badge/TypeScript-75.3%25-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
   </a>
   <a href="https://www.java.com/">
-    <img src="https://img.shields.io/badge/Java-20.9%25-007396?logo=java&logoColor=white" alt="Java" />
+    <img src="https://img.shields.io/badge/Java-007396?logo=java&logoColor=white" alt="Java" />
   </a>
   <a href="https://spring.io/projects/spring-boot">
-    <img src="https://img.shields.io/badge/Spring_Boot-3.2.0-6DB33F?logo=springboot&logoColor=white" alt="Spring Boot" />
+    <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?logo=springboot&logoColor=white" alt="Spring Boot" />
   </a>
   <a href="https://react.dev/">
-    <img src="https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=black" alt="React" />
+    <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black" alt="React" />
   </a>
   <a href="https://vitejs.dev/">
-    <img src="https://img.shields.io/badge/Vite-5.0.0-646CFF?logo=vite&logoColor=white" alt="Vite" />
+    <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white" alt="Vite" />
   </a>
 </p>
 
@@ -65,26 +65,27 @@ Repositori ini terdiri dari dua bagian utama:
 ## 🛠️ Teknologi
 
 ### Frontend
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
-![React Router](https://img.shields.io/badge/React_Router-6-CA4245?logo=reactrouter&logoColor=white)
-![React Query](https://img.shields.io/badge/React_Query-5-FF4154?logo=reactquery&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&logoColor=white)
+![React Query](https://img.shields.io/badge/React_Query-FF4154?logo=reactquery&logoColor=white)
 
 ### Backend
-![Java](https://img.shields.io/badge/Java-17-007396?logo=java&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.2-6DB33F?logo=springboot&logoColor=white)
-![Spring Security](https://img.shields.io/badge/Spring_Security-6-6DB33F?logo=springsecurity&logoColor=white)
-![JPA / Hibernate](https://img.shields.io/badge/JPA_&_Hibernate-6-59666C?logo=hibernate&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?logo=postgresql&logoColor=white)
-![Maven](https://img.shields.io/badge/Maven-3.9-C71A36?logo=apachemaven&logoColor=white)
+![Java](https://img.shields.io/badge/Java-007396?logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?logo=springboot&logoColor=white)
+![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?logo=springsecurity&logoColor=white)
+![JPA / Hibernate](https://img.shields.io/badge/JPA_&_Hibernate-59666C?logo=hibernate&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?logo=apachemaven&logoColor=white)
 
 ### DevOps & Alat Bantu
-![Docker](https://img.shields.io/badge/Docker-🐳-2496ED?logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?logo=githubactions&logoColor=white)
-![ESLint](https://img.shields.io/badge/ESLint-8-4B32C3?logo=eslint&logoColor=white)
-![Prettier](https://img.shields.io/badge/Prettier-3-F7B93E?logo=prettier&logoColor=black)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?logo=githubactions&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=black)
 
 ---
 
+## 📁 Struktur Proyek
