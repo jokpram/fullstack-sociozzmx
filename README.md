@@ -24,16 +24,7 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="#-tentang-proyek">Tentang</a> •
-  <a href="#-fitur-utama">Fitur</a> •
-  <a href="#-teknologi">Teknologi</a> •
-  <a href="#-memulai">Memulai</a> •
-  <a href="#-dokumentasi-api">API</a> •
-  <a href="#-pengujian">Pengujian</a> •
-  <a href="#-kontribusi">Kontribusi</a> •
-  <a href="#-lisensi">Lisensi</a>
-</p>
+
 
 ---
 
