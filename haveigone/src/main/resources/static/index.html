@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociozzmx Chat API Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .endpoint {
+            background: #fdfdfd;
+            border: 1px solid #e1e8ed;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            padding: 20px;
+        }
+
+        .endpoint-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .method {
+            font-weight: bold;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-right: 15px;
+            font-size: 0.9em;
+        }
+
+        .method.post {
+            background-color: #27ae60;
+        }
+
+        .method.get {
+            background-color: #2980b9;
+        }
+
+        .method.ws {
+            background-color: #8e44ad;
+        }
+
+        .url {
+            font-size: 1.1em;
+            font-family: monospace;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .desc {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Sociozzmx Chat API Documentation</h1>
+        <p style="text-align: center; margin-bottom: 40px;">Daftar lengkap endpoint API dan struktur JSON untuk aplikasi
+            Chat & WebRTC.</p>
+
+        <!-- REGISTER -->
+        <div class="endpoint">
+            <div class="endpoint-title">
+                <span class="method post">POST</span>
+                <span class="url">/api/auth/register</span>
+            </div>
+            <div class="desc">Mendaftarkan pengguna baru (Registrasi).</div>
+            <strong>Request Body (JSON):</strong>
+            <pre>
+{
+  "username": "johndoe",
+  "password": "secretpassword",
+  "fullName": "John Doe"
+}</pre>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="endpoint">
+            <div class="endpoint-title">
+                <span class="method post">POST</span>
+                <span class="url">/api/auth/login</span>
+            </div>
+            <div class="desc">Masuk ke dalam aplikasi (Login). Mengembalikan data user termasuk status Online.</div>
+            <strong>Request Body (JSON):</strong>
+            <pre>
+{
+  "username": "johndoe",
+  "password": "secretpassword"
+}</pre>
+        </div>
+
+        <!-- CONNECT USER -->
+        <div class="endpoint">
+            <div class="endpoint-title">
+                <span class="method post">POST</span>
+                <span class="url">/api/users/connect</span>
+            </div>
+            <div class="desc">Melaporkan/menyimpan koneksi pengguna ke database (biasanya dipanggil saat WebSocket mau
+                tersambung). Harus menyertakan header <code>Session-Id</code>.</div>
+            <strong>Header Params:</strong> <code>Session-Id: &lt;websocket_session_id&gt;</code><br><br>
+            <strong>Request Body (JSON):</strong>
+            <pre>
+{
+  "username": "johndoe",
+  "fullName": "John Doe"
+}</pre>
+        </div>
+
+        <!-- GET CONNECTED USERS -->
+        <div class="endpoint">
+            <div class="endpoint-title">
+                <span class="method get">GET</span>
+                <span class="url">/api/users/connected</span>
+            </div>
+            <div class="desc">Mengambil daftar semua pengguna yang saat ini sedang ONLINE.</div>
+            <strong>Request Body:</strong> <em>(Tidak ada / Kosong)</em>
+        </div>
+
+        <!-- HISTORY MESSAGES -->
+        <div class="endpoint">
+            <div class="endpoint-title">
+                <span class="method get">GET</span>
+                <span class="url">/api/chat/history</span>
+            </div>
+            <div class="desc">Mengambil riwayat percakapan antara dua pengguna. Parameter `senderId` dan `recipientId`
+                wajib diisi lewat query string.</div>
+            <strong>Query Params:</strong>
+            <pre>?senderId=johndoe&amp;recipientId=janedoe</pre>
+            <strong>Response (JSON Array):</strong>
+            <pre>
+[
+  {
+    "id": 1,
+    "senderId": "johndoe",
+    "recipientId": "janedoe",
+    "content": "Halo, Jane!",
+    "type": "CHAT",
+    "timestamp": "2026-02-24T10:00:00"
+  }
+]</pre>
+        </div>
+
+        <!-- WEBSOCKET CHAT -->
+        <div class="endpoint">
+            <div class="endpoint-title">
+                <span class="method ws">WS/STOMP</span>
+                <span class="url">ws://localhost:8081/ws</span>
+            </div>
+            <div class="desc">Endpoint utama WebSocket. Terhubung menggunakan client STOMP atau SockJS.</div>
+            <strong>Daftar Topic/Queue:</strong>
+            <ul>
+                <li><code>/app/chat.sendMessage</code> : Kirim pesan private</li>
+                <li><code>/app/chat.publicMessage</code> : Kirim pesan grup global</li>
+                <li><code>/app/webrtc.signal</code> : Kirim sinyal WebRTC (Video Call & Audio Call)</li>
+                <li><code>/topic/public</code> : (Subscribe) Terima pesan publik atau notifikasi LEAVE</li>
+                <li><code>/user/queue/messages</code> : (Subscribe) Terima pesan DM pribadi</li>
+                <li><code>/user/queue/webrtc</code> : (Subscribe) Terima panggilan WebRTC / Answer</li>
+            </ul>
+            <strong>Contoh Payload Chat JSON (/app/chat.sendMessage):</strong>
+            <pre>
+{
+  "senderId": "johndoe",
+  "recipientId": "janedoe",
+  "content": "Halo, Jane!",
+  "type": "CHAT",
+  "timestamp": "2026-02-24T10:00:00"
+}</pre>
+        </div>
+
+        <!-- VIDEO CALL & AUDIO CALL (WEBRTC) -->
+        <div class="endpoint">
+            <div class="endpoint-title">
+                <span class="method ws">WS/STOMP</span>
+                <span class="url">/app/webrtc.signal</span>
+            </div>
+            <div class="desc">Mengirim dan menerima SDP Offers, Answers, serta rentetan protokol ICE Candidate untuk
+                menghubungkan Peer-to-Peer <strong>Video Call / Voice Call</strong>. Target menerima di
+                <code>/user/queue/webrtc</code></div>
+            <strong>Contoh Payload Video Call (SDP Offer):</strong>
+            <pre>
+{
+  "type": "offer",
+  "sender": "johndoe",
+  "recipient": "janedoe",
+  "sdp": "v=0\r\no=- 461173... \r\ns=-\r\nt=0 0\r\n..."
+}</pre>
+        </div>
+
+        <!-- STORIES -->
+        <div class="endpoint">
+            <div class="endpoint-title">
+                <span class="method post">POST</span>
+                <span class="url">/api/stories</span>
+            </div>
+            <div class="desc">Membuat (Upload) status/story baru yang akan hilang dalam 24 jam. Ini adalah permintaan
+                Multipart FormData jika menggunakan gambar/video.</div>
+            <strong>Request Type:</strong> <code>multipart/form-data</code><br><br>
+            <strong>Form Fields:</strong>
+            <ul>
+                <li><code>userId</code> : String (username pembuat)</li>
+                <li><code>mediaFile</code> : File biner (.jpg / .mp4)</li>
+                <li><code>caption</code> : String opsional</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
